@@ -4,6 +4,7 @@ import { useCallback } from "react"; // Add this import
 
 import {
     createContext,
+    useContext,
     useEffect,
     useState,
     useMemo
@@ -54,10 +55,16 @@ const AuthProvider = ({ children }) => { // children is the component that is wr
     );
 };
 
+export const useAuth = () => {
+    return useContext(AuthContext);
+};
+
 // Add prop types validation for 'children'
 AuthProvider.propTypes = {
     children: PropTypes.node.isRequired,
 };
+
+
 
 
 export default AuthProvider;
